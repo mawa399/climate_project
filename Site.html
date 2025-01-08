@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse Climatique de l’Europe à Travers les Données ECAD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('https://cdn.futura-sciences.com/sources/images/rechauffement-climat.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: white;
+            text-align: left;
+            padding: 20px;
+        }
+        header .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            flex-grow: 1;
+        }
+        .slider-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9); 
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .emphasized {
+            font-style: italic;
+            text-align: center; 
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #2c3e50eb;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #1abc9c;
+        }
+        footer {
+            background-color: rgba(44, 62, 80, 0.8); 
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            margin-top: auto; 
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: #1abc9c;
+            text-decoration: none;
+        }
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-controls button {
+            background: none; 
+            border: none; 
+            color: white; 
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease; 
+            margin-left: 220px; 
+            margin-right: 220px; 
+        }
+
+        .slider-controls button:hover {
+            color: #1fdab4; 
+        }
+
+        .image-slide img {
+            max-width: 65%;
+            border-radius: 8px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>Analyse Climatique de l’Europe</h1>
+        <p>À Travers les Données E-OBS</p>
+    </div>
+</header>
+
+<div class="slider">
+    <div class="slider-content">
+        
+        <div class="slide">
+            <div class="container">
+                <p class="description">
+                    L'objectif du projet est d'analyser les changements climatiques en Europe au cours des 74 dernières années (1950–2023) 
+                    à l'aide des données climatiques E-OBS (version 29) fournies par <a href="https://www.ecad.eu/download/ensembles/download.php" style="color: black; text-decoration: yes;"><strong>European Climate Assessment & Dataset (ECAD)</strong></a> (ECA&D). <br><br>
+                    Ce projet utilise les données des températures quotidiennes minimales (TN) et maximales (TX) sur une grille régulière de 0,25 degré (25 km). La zone géographique couverte s'étend de 34° à 72° de latitude nord et de 12° de longitude ouest à 42° de longitude est. Les fichiers au format NetCDF-4 (Network Common Data Form version 4) 
+                    sont adaptés à l'analyse de données scientifiques multidimensionnelles, telles que les modèles climatiques et les mesures météorologiques. 
+                    L'analyse est réalisée avec le langage R et les visualisations interactives sont développées avec Python.
+                </p>
+                <p class="emphasized">
+                    Les résultats sont présentés sous forme de cartes interactives, illustrant les températures minimales, maximales, moyennes, ainsi que les jours de gel et les changements climatiques observés au fil des décennies.
+                </p>
+
+                <div class="button-container">
+                    <a href="mean_min_temp_map.html" class="button">Moyenne des Températures journalières minimales</a>
+                    <a href="mean_max_temp_map.html" class="button">Moyenne des Températures journalières maximales</a>
+                    <a href="mean_temp.html" class="button">Moyenne des Températures journalières</a>
+                    <a href="evolution_map.html" class="button">Carte des Changements Climatiques</a>
+                    <a href="freeze_map.html" class="button">Carte des Jours de Gel</a>
+                </div>
+            </div>
+        </div>
+
+      
+        <div class="slide image-slide">
+            <img src="image.jpg" alt="Image Slide">
+        </div>
+    </div>
+
+    <div class="slider-controls">
+        <button id="prev">&#9664;</button>
+        <button id="next">&#9654;</button>
+    </div>
+</div>
+
+<footer>
+    <p>Réalisé par Daria Podlovchenko, Anaïs Abdelhamid, Mawa Diaw</p>
+    <p>Université Paris 8 - Master Géomatique, Géodécisionnel, Géomarketing et Multimédia (G2M)</p>
+    <p>2024 - 2025</p>
+</footer>
+
+<script>
+    const sliderContent = document.querySelector('.slider-content');
+    const slides = document.querySelectorAll('.slide');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+
+    let currentIndex = 0;
+
+    function updateSlider() {
+        const offset = -currentIndex * 100;
+        sliderContent.style.transform = `translateX(${offset}%)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+        updateSlider();
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+        updateSlider();
+    });
+</script>
+
+</body>
+</html>
